@@ -61,7 +61,7 @@ class IODataSampleRxIndicatorWifiPacket(XBeeAPIPacket):
            | :class:`.ReceiveOptions`
            | :class:`.XBeeAPIPacket`
         """
-        super().__init__(ApiFrameType.IO_DATA_SAMPLE_RX_INDICATOR_WIFI)
+        super(IODataSampleRxIndicatorWifiPacket,self).__init__(ApiFrameType.IO_DATA_SAMPLE_RX_INDICATOR_WIFI)
         self.__source_address = source_address
         self.__rssi = rssi
         self.__receive_options = receive_options
@@ -142,14 +142,14 @@ class IODataSampleRxIndicatorWifiPacket(XBeeAPIPacket):
             # Digital values
             for i in range(16):
                 if self.__io_sample.has_digital_value(IOLine.get(i)):
-                    base[IOLine.get(i).description + " digital value"] = \
-                        self.__io_sample.get_digital_value(IOLine.get(i)).name
+                    base[IOLine.get(i).description + "digital value"] = \
+                        utils.hex_to_string(self.__io_sample.get_digital_value(IOLine.get(i)))
 
             # Analog values
             for i in range(6):
                 if self.__io_sample.has_analog_value(IOLine.get(i)):
-                    base[IOLine.get(i).description + " analog value"] = \
-                        self.__io_sample.get_analog_value(IOLine.get(i))
+                    base[IOLine.get(i).description + "analog value"] = \
+                        utils.hex_to_string(self.__io_sample.get_analog_value(IOLine.get(i)))
 
             # Power supply
             if self.__io_sample.has_power_supply_value():
@@ -344,7 +344,7 @@ class RemoteATCommandWifiPacket(XBeeAPIPacket):
         if len(command) != 2:
             raise ValueError("Invalid command " + command)
 
-        super().__init__(ApiFrameType.REMOTE_AT_COMMAND_REQUEST_WIFI)
+        super(RemoteATCommandWifiPacket,self).__init__(ApiFrameType.REMOTE_AT_COMMAND_REQUEST_WIFI)
         self._frame_id = frame_id
         self.__dest_address = dest_address
         self.__transmit_options = transmit_options
@@ -571,7 +571,7 @@ class RemoteATCommandResponseWifiPacket(XBeeAPIPacket):
         if len(command) != 2:
             raise ValueError("Invalid command " + command)
 
-        super().__init__(ApiFrameType.REMOTE_AT_COMMAND_RESPONSE_WIFI)
+        super(RemoteATCommandResponseWifiPacket,self).__init__(ApiFrameType.REMOTE_AT_COMMAND_RESPONSE_WIFI)
         self._frame_id = frame_id
         self.__source_address = source_address
         self.__command = command

@@ -85,8 +85,6 @@ class XBeePacket:
     Generic actions like checksum compute or packet length calculation is performed here.
     """
 
-    __HASH_SEED = 23
-
     __metaclass__ = ABCMeta
     __ESCAPE_BYTES = [i.value for i in SpecialByte]
     __ESCAPE_FACTOR = 0x20
@@ -120,32 +118,6 @@ class XBeePacket:
             Dictionary: the packet information.
         """
         return str(self.to_dict())
-
-    def __eq__(self, other):
-        """
-        Returns whether the given object is equal to this one.
-
-        Args:
-            other: the object to compare.
-
-        Returns:
-            Boolean: ``True`` if the objects are equal, ``False`` otherwise.
-        """
-        if not isinstance(other, XBeePacket):
-            return False
-        return other.output() == self.output()
-
-    def __hash__(self):
-        """
-        Returns a hash code value for the object.
-
-        Returns:
-            Integer: hash code value for the object.
-        """
-        res = self.__HASH_SEED
-        for b in self.output():
-            res = 31 * (res + b)
-        return res
 
     def get_checksum(self):
         """
@@ -318,7 +290,7 @@ class XBeeAPIPacket(XBeePacket):
            | :class:`.ApiFrameType`
            | :class:`.XBeePacket`
         """
-        super().__init__()
+        super(XBeeAPIPacket,self).__init__()
         # Check the type of the API frame type.
         if isinstance(api_frame_type, ApiFrameType):
             self._frame_type = api_frame_type
@@ -500,7 +472,7 @@ class GenericXBeePacket(XBeeAPIPacket):
            | :mod:`.factory`
            | :class:`.XBeeAPIPacket`
         """
-        super().__init__(api_frame_type=ApiFrameType.GENERIC)
+        super(GenericXBeePacket,self).__init__(api_frame_type=ApiFrameType.GENERIC)
         self.__rf_data = rf_data
 
     @staticmethod
@@ -586,7 +558,7 @@ class UnknownXBeePacket(XBeeAPIPacket):
            | :mod:`.factory`
            | :class:`.XBeeAPIPacket`
         """
-        super().__init__(api_frame_type=api_frame)
+        super(UnknownXBeePacket,self).__init__(api_frame_type=api_frame)
         self.__rf_data = rf_data
 
     @staticmethod

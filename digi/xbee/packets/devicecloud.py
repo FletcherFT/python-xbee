@@ -58,7 +58,7 @@ class DeviceRequestPacket(XBeeAPIPacket):
         if target is not None and len(target) > 255:
             raise ValueError("Target length cannot exceed 255 bytes.")
 
-        super().__init__(ApiFrameType.DEVICE_REQUEST)
+        super(DeviceRequestPacket,self).__init__(ApiFrameType.DEVICE_REQUEST)
         self.__request_id = request_id
         self.__transport = 0x00  # Reserved.
         self.__flags = 0x00  # Reserved.
@@ -281,7 +281,7 @@ class DeviceResponsePacket(XBeeAPIPacket):
         if request_id < 0 or request_id > 255:
             raise ValueError("Device request ID must be between 0 and 255.")
 
-        super().__init__(ApiFrameType.DEVICE_RESPONSE)
+        super(DeviceResponsePacket,self).__init__(ApiFrameType.DEVICE_RESPONSE)
         self._frame_id = frame_id
         self.__request_id = request_id
         self.__response_data = response_data
@@ -438,7 +438,7 @@ class DeviceResponseStatusPacket(XBeeAPIPacket):
         if frame_id < 0 or frame_id > 255:
             raise ValueError("Frame id must be between 0 and 255.")
 
-        super().__init__(ApiFrameType.DEVICE_RESPONSE_STATUS)
+        super(DeviceResponseStatusPacket,self).__init__(ApiFrameType.DEVICE_RESPONSE_STATUS)
         self._frame_id = frame_id
         self.__status = status
 
@@ -554,7 +554,7 @@ class FrameErrorPacket(XBeeAPIPacket):
            | :class:`.FrameError`
            | :class:`.XBeeAPIPacket`
         """
-        super().__init__(ApiFrameType.FRAME_ERROR)
+        super(FrameErrorPacket,self).__init__(ApiFrameType.FRAME_ERROR)
         self.__frame_error = frame_error
 
     @staticmethod
@@ -682,7 +682,7 @@ class SendDataRequestPacket(XBeeAPIPacket):
         if frame_id < 0 or frame_id > 255:
             raise ValueError("Frame id must be between 0 and 255.")
 
-        super().__init__(ApiFrameType.SEND_DATA_REQUEST)
+        super(SendDataRequestPacket,self).__init__(ApiFrameType.SEND_DATA_REQUEST)
         self._frame_id = frame_id
         self.__path = path
         self.__content_type = content_type
@@ -905,7 +905,7 @@ class SendDataResponsePacket(XBeeAPIPacket):
         if frame_id < 0 or frame_id > 255:
             raise ValueError("Frame id must be between 0 and 255.")
 
-        super().__init__(ApiFrameType.SEND_DATA_RESPONSE)
+        super(SendDataResponsePacket,self).__init__(ApiFrameType.SEND_DATA_RESPONSE)
         self._frame_id = frame_id
         self.__status = status
 

@@ -53,7 +53,7 @@ class RXSMSPacket(XBeeAPIPacket):
             raise ValueError("Phone number length cannot be greater than 20 bytes")
         if not re.match(PATTERN_PHONE_NUMBER, phone_number):
             raise ValueError("Phone number invalid, only numbers and '+' prefix allowed.")
-        super().__init__(ApiFrameType.RX_SMS)
+        super(RXSMSPacket,self).__init__(ApiFrameType.RX_SMS)
 
         self.__phone_number = bytearray(20)
         self.__phone_number[0:len(phone_number)] = phone_number.encode("utf8")
@@ -219,7 +219,7 @@ class TXSMSPacket(XBeeAPIPacket):
             raise ValueError("Phone number length cannot be greater than 20 bytes")
         if not re.match(PATTERN_PHONE_NUMBER, phone_number):
             raise ValueError("Phone number invalid, only numbers and '+' prefix allowed.")
-        super().__init__(ApiFrameType.TX_SMS)
+        super(TXSMSPacket,self).__init__(ApiFrameType.TX_SMS)
         
         self._frame_id = frame_id
         self.__transmit_options = TransmitOptions.NONE.value

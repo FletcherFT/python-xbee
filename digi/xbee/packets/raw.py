@@ -57,7 +57,7 @@ class TX64Packet(XBeeAPIPacket):
         if frame_id < 0 or frame_id > 255:
             raise ValueError("Frame id must be between 0 and 255.")
 
-        super().__init__(ApiFrameType.TX_64)
+        super(TX64Packet,self).__init__(ApiFrameType.TX_64)
         self._frame_id = frame_id
         self.__x64bit_addr = x64bit_addr
         self.__transmit_options = transmit_options
@@ -244,7 +244,7 @@ class TX16Packet(XBeeAPIPacket):
         if frame_id < 0 or frame_id > 255:
             raise ValueError("Frame id must be between 0 and 255.")
 
-        super().__init__(ApiFrameType.TX_16)
+        super(TX16Packet,self).__init__(ApiFrameType.TX_16)
         self._frame_id = frame_id
         self.__x16bit_addr = x16bit_addr
         self.__transmit_options = transmit_options
@@ -431,7 +431,7 @@ class TXStatusPacket(XBeeAPIPacket):
         if frame_id < 0 or frame_id > 255:
             raise ValueError("Frame id must be between 0 and 255.")
 
-        super().__init__(ApiFrameType.TX_STATUS)
+        super(TXStatusPacket,self).__init__(ApiFrameType.TX_STATUS)
         self._frame_id = frame_id
         self.__transmit_status = transmit_status
 
@@ -556,7 +556,7 @@ class RX64Packet(XBeeAPIPacket):
            | :class:`.XBeeAPIPacket`
         """
 
-        super().__init__(ApiFrameType.RX_64)
+        super(RX64Packet,self).__init__(ApiFrameType.RX_64)
 
         self.__x64bit_addr = x64bit_addr
         self.__rssi = rssi
@@ -766,7 +766,7 @@ class RX16Packet(XBeeAPIPacket):
            | :class:`.XBeeAPIPacket`
         """
 
-        super().__init__(ApiFrameType.RX_16)
+        super(RX16Packet,self).__init__(ApiFrameType.RX_16)
 
         self.__x16bit_addr = x16bit_addr
         self.__rssi = rssi
@@ -971,7 +971,7 @@ class RX64IOPacket(XBeeAPIPacket):
            | :class:`.XBee64BitAddress`
            | :class:`.XBeeAPIPacket`
         """
-        super().__init__(ApiFrameType.RX_IO_64)
+        super(RX64IOPacket,self).__init__(ApiFrameType.RX_IO_64)
         self.__x64bit_addr = x64bit_addr
         self.__rssi = rssi
         self.__receive_options = receive_options
@@ -1234,7 +1234,7 @@ class RX16IOPacket(XBeeAPIPacket):
            | :class:`.XBee16BitAddress`
            | :class:`.XBeeAPIPacket`
         """
-        super().__init__(ApiFrameType.RX_IO_16)
+        super(RX16IOPacket,self).__init__(ApiFrameType.RX_IO_16)
         self.__x16bit_addr = x16bit_addr
         self.__rssi = rssi
         self.__options = receive_options

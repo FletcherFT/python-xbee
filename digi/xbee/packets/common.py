@@ -30,7 +30,7 @@ class ATCommPacket(XBeeAPIPacket):
     command applies changes after executing the command. (Changes made to
     module parameters take effect once changes are applied.).
     
-    Command response is received as an :class:`.ATCommResponsePacket`.
+    command response is received as an :class:`.ATCommResponsePacket`.
     
     .. seealso::
        | :class:`.ATCommResponsePacket`
@@ -61,7 +61,7 @@ class ATCommPacket(XBeeAPIPacket):
         if frame_id < 0 or frame_id > 255:
             raise ValueError("Frame id must be between 0 and 255.")
 
-        super().__init__(ApiFrameType.AT_COMMAND)
+        super(ATCommPacket,self).__init__(ApiFrameType.AT_COMMAND)
         self.__command = command
         self.__parameter = parameter
         self._frame_id = frame_id
@@ -176,163 +176,6 @@ class ATCommPacket(XBeeAPIPacket):
     """Bytearray. AT command parameter."""
 
 
-class ATCommQueuePacket(XBeeAPIPacket):
-    """
-    This class represents an AT command Queue packet.
-
-    Used to query or set module parameters on the local device.
-
-    In contrast to the :class:`.ATCommPacket` API packet, new parameter
-    values are queued and not applied until either an :class:`.ATCommPacket`
-    is sent or the ``applyChanges()`` method of the :class:`.XBeeDevice`
-    class is issued.
-
-    Command response is received as an :class:`.ATCommResponsePacket`.
-
-    .. seealso::
-       | :class:`.ATCommResponsePacket`
-       | :class:`.XBeeAPIPacket`
-    """
-
-    __MIN_PACKET_LENGTH = 6
-
-    def __init__(self, frame_id, command, parameter=None):
-        """
-        Class constructor. Instantiates a new :class:`.ATCommQueuePacket` object with the provided parameters.
-
-        Args:
-            frame_id (Integer): the frame ID of the packet.
-            command (String): the AT command of the packet. Must be a string.
-            parameter (Bytearray, optional): the AT command parameter. Optional.
-
-        Raises:
-            ValueError: if ``frame_id`` is less than 0 or greater than 255.
-            ValueError: if length of ``command`` is different than 2.
-
-        .. seealso::
-            | :class:`.XBeeAPIPacket`
-        """
-        if len(command) != 2:
-            raise ValueError("Invalid command " + command)
-
-        if frame_id < 0 or frame_id > 255:
-            raise ValueError("Frame id must be between 0 and 255.")
-
-        super().__init__(ApiFrameType.AT_COMMAND_QUEUE)
-        self.__command = command
-        self.__parameter = parameter
-        self._frame_id = frame_id
-
-    @staticmethod
-    def create_packet(raw, operating_mode):
-        """
-        Override method.
-
-        Returns:
-            :class:`.ATCommQueuePacket`
-
-        Raises:
-            InvalidPacketException: if the bytearray length is less than 6. (start delim. + length (2 bytes) + frame
-                type + frame id + checksum = 6 bytes).
-            InvalidPacketException: if the length field of 'raw' is different than its real length. (length field: bytes
-                2 and 3)
-            InvalidPacketException: if the first byte of 'raw' is not the header byte. See :class:`.SpecialByte`.
-            InvalidPacketException: if the calculated checksum is different than the checksum field value (last byte).
-            InvalidPacketException: if the frame type is different than :attr:`.ApiFrameType.AT_COMMAND_QUEUE`.
-            InvalidOperatingModeException: if ``operating_mode`` is not supported.
-
-        .. seealso::
-           | :meth:`.XBeePacket.create_packet`
-           | :meth:`.XBeeAPIPacket._check_api_packet`
-        """
-        if operating_mode != OperatingMode.ESCAPED_API_MODE and operating_mode != OperatingMode.API_MODE:
-            raise InvalidOperatingModeException(operating_mode.name + " is not supported.")
-
-        XBeeAPIPacket._check_api_packet(raw, min_length=ATCommQueuePacket.__MIN_PACKET_LENGTH)
-
-        if raw[3] != ApiFrameType.AT_COMMAND_QUEUE.code:
-            raise InvalidPacketException("This packet is not an AT command Queue packet.")
-
-        return ATCommQueuePacket(raw[4], raw[5:7].decode("utf8"), raw[7:-1])
-
-    def needs_id(self):
-        """
-        Override method.
-
-        .. seealso::
-           | :meth:`.XBeeAPIPacket.needs_id`
-        """
-        return True
-
-    def _get_api_packet_spec_data(self):
-        """
-        Override method.
-
-        .. seealso::
-           | :meth:`.XBeeAPIPacket._get_api_packet_spec_data`
-        """
-        if self.__parameter is not None:
-            return bytearray(self.__command, "utf8") + self.__parameter
-        return bytearray(self.__command, "utf8")
-
-    def _get_api_packet_spec_data_dict(self):
-        """
-        Override method.
-
-        .. seealso::
-           | :meth:`.XBeeAPIPacket._get_api_packet_spec_data_dict`
-        """
-        return {DictKeys.COMMAND: self.__command,
-                DictKeys.PARAMETER: list(self.__parameter) if self.__parameter is not None else None}
-
-    def __get_command(self):
-        """
-        Returns the AT command of the packet.
-
-        Returns:
-            String: the AT command of the packet.
-        """
-        return self.__command
-
-    def __set_command(self, command):
-        """
-        Sets the AT command of the packet.
-
-        Args:
-            command (String): the new AT command of the packet. Must have length = 2.
-
-        Raises:
-            ValueError: if length of ``command`` is different than 2.
-        """
-        if len(command) != 2:
-            raise ValueError("Invalid command " + command)
-        self.__command = command
-
-    def __get_parameter(self):
-        """
-        Returns the parameter of the packet.
-
-        Returns:
-            Bytearray: the parameter of the packet.
-        """
-        return self.__parameter
-
-    def __set_parameter(self, param):
-        """
-        Sets the parameter of the packet.
-
-        Args:
-            param (Bytearray): the new parameter of the packet.
-        """
-        self.__parameter = param
-
-    command = property(__get_command, __set_command)
-    """String. AT command."""
-
-    parameter = property(__get_parameter, __set_parameter)
-    """Bytearray. AT command parameter."""
-
-
 class ATCommResponsePacket(XBeeAPIPacket):
     """
     This class represents an AT command response packet.
@@ -377,7 +220,7 @@ class ATCommResponsePacket(XBeeAPIPacket):
         if len(command) != 2:
             raise ValueError("Invalid command " + command)
 
-        super().__init__(ApiFrameType.AT_COMMAND_RESPONSE)
+        super(ATCommResponsePacket,self).__init__(ApiFrameType.AT_COMMAND_RESPONSE)
         self._frame_id = frame_id
         self.__command = command
         self.__response_status = response_status
@@ -564,7 +407,7 @@ class ReceivePacket(XBeeAPIPacket):
            | :class:`.XBee64BitAddress`
            | :class:`.XBeeAPIPacket`
         """
-        super().__init__(ApiFrameType.RECEIVE_PACKET)
+        super(ReceivePacket,self).__init__(ApiFrameType.RECEIVE_PACKET)
         self.__x64bit_addr = x64bit_addr
         self.__x16bit_addr = x16bit_addr
         self.__receive_options = receive_options
@@ -796,7 +639,7 @@ class RemoteATCommandPacket(XBeeAPIPacket):
         if len(command) != 2:
             raise ValueError("Invalid command " + command)
 
-        super().__init__(ApiFrameType.REMOTE_AT_COMMAND_REQUEST)
+        super(RemoteATCommandPacket,self).__init__(ApiFrameType.REMOTE_AT_COMMAND_REQUEST)
         self._frame_id = frame_id
         self.__x64bit_addr = x64bit_addr
         self.__x16bit_addr = x16bit_addr
@@ -1053,7 +896,7 @@ class RemoteATCommandResponsePacket(XBeeAPIPacket):
         if len(command) != 2:
             raise ValueError("Invalid command " + command)
 
-        super().__init__(ApiFrameType.REMOTE_AT_COMMAND_RESPONSE)
+        super(RemoteATCommandResponsePacket,self).__init__(ApiFrameType.REMOTE_AT_COMMAND_RESPONSE)
         self._frame_id = frame_id
         self.__x64bit_addr = x64bit_addr
         self.__x16bit_addr = x16bit_addr
@@ -1121,8 +964,8 @@ class RemoteATCommandResponsePacket(XBeeAPIPacket):
         return ret
 
     def _get_api_packet_spec_data_dict(self):
-        return {DictKeys.X64BIT_ADDR:   self.__x64bit_addr.address,
-                DictKeys.X16BIT_ADDR:   self.__x16bit_addr.address,
+        return {DictKeys.X4BIT_ADDR:    self.__x64bit_addr.address,
+                DictKeys.X6BIT_ADDR:    self.__x16bit_addr.address,
                 DictKeys.COMMAND:       self.__command,
                 DictKeys.AT_CMD_STATUS: self.__response_status,
                 DictKeys.RF_DATA:       list(self.__comm_value) if self.__comm_value is not None else None}
@@ -1326,7 +1169,7 @@ class TransmitPacket(XBeeAPIPacket):
         if frame_id > 255 or frame_id < 0:
             raise ValueError("frame_id must be between 0 and 255.")
 
-        super().__init__(ApiFrameType.TRANSMIT_REQUEST)
+        super(TransmitPacket,self).__init__(ApiFrameType.TRANSMIT_REQUEST)
         self._frame_id = frame_id
         self.__x64bit_addr = x64bit_addr
         self.__x16bit_addr = x16bit_addr
@@ -1399,8 +1242,8 @@ class TransmitPacket(XBeeAPIPacket):
         .. seealso::
            | :meth:`.XBeeAPIPacket._get_api_packet_spec_data_dict`
         """
-        return {DictKeys.X64BIT_ADDR:      self.__x64bit_addr.address,
-                DictKeys.X16BIT_ADDR:      self.__x16bit_addr.address,
+        return {DictKeys.X4BIT_ADDR:       self.__x64bit_addr.address,
+                DictKeys.X6BIT_ADDR:       self.__x16bit_addr.address,
                 DictKeys.BROADCAST_RADIUS: self.__broadcast_radius,
                 DictKeys.TRANSMIT_OPTIONS: self.__transmit_options,
                 DictKeys.RF_DATA:          list(self.__rf_data) if self.__rf_data is not None else None}
@@ -1576,7 +1419,7 @@ class TransmitStatusPacket(XBeeAPIPacket):
         if frame_id < 0 or frame_id > 255:
             raise ValueError("Frame id must be between 0 and 255.")
 
-        super().__init__(ApiFrameType.TRANSMIT_STATUS)
+        super(TransmitStatusPacket,self).__init__(ApiFrameType.TRANSMIT_STATUS)
         self._frame_id = frame_id
         self.__x16bit_addr = x16bit_addr
         self.__transmit_retry_count = transmit_retry_count
@@ -1779,7 +1622,7 @@ class ModemStatusPacket(XBeeAPIPacket):
            | :class:`.ModemStatus`
            | :class:`.XBeeAPIPacket`
         """
-        super().__init__(ApiFrameType.MODEM_STATUS)
+        super(ModemStatusPacket,self).__init__(ApiFrameType.MODEM_STATUS)
         self.__modem_status = modem_status
 
     @staticmethod
@@ -1909,7 +1752,7 @@ class IODataSampleRxIndicatorPacket(XBeeAPIPacket):
            | :class:`.XBee64BitAddress`
            | :class:`.XBeeAPIPacket`
         """
-        super().__init__(ApiFrameType.IO_DATA_SAMPLE_RX_INDICATOR)
+        super(IODataSampleRxIndicatorPacket,self).__init__(ApiFrameType.IO_DATA_SAMPLE_RX_INDICATOR)
         self.__x64bit_addr = x64bit_addr
         self.__x16bit_addr = x16bit_addr
         self.__receive_options = receive_options
@@ -1991,14 +1834,14 @@ class IODataSampleRxIndicatorPacket(XBeeAPIPacket):
             # Digital values
             for i in range(16):
                 if self.__io_sample.has_digital_value(IOLine.get(i)):
-                    base[IOLine.get(i).description + " digital value"] = \
-                        self.__io_sample.get_digital_value(IOLine.get(i)).name
+                    base[IOLine.get(i).description + "digital value"] = \
+                        utils.hex_to_string(self.__io_sample.get_digital_value(IOLine.get(i)))
 
             # Analog values
             for i in range(6):
                 if self.__io_sample.has_analog_value(IOLine.get(i)):
-                    base[IOLine.get(i).description + " analog value"] = \
-                        self.__io_sample.get_analog_value(IOLine.get(i))
+                    base[IOLine.get(i).description + "analog value"] = \
+                        utils.hex_to_string(self.__io_sample.get_analog_value(IOLine.get(i)))
 
             # Power supply
             if self.__io_sample.has_power_supply_value():
@@ -2252,7 +2095,7 @@ class ExplicitAddressingPacket(XBeeAPIPacket):
         if profile_id < 0 or profile_id > 0xFFFF:
             raise ValueError("Profile id must be between 0 and 0xFFFF.")
 
-        super().__init__(ApiFrameType.EXPLICIT_ADDRESSING)
+        super(ExplicitAddressingPacket,self).__init__(ApiFrameType.EXPLICIT_ADDRESSING)
         self._frame_id = frame_id
         self.__x64_addr = x64bit_addr
         self.__x16_addr = x16bit_addr
@@ -2614,7 +2457,7 @@ class ExplicitRXIndicatorPacket(XBeeAPIPacket):
         if profile_id < 0 or profile_id > 0xFFFF:
             raise ValueError("Profile id must be between 0 and 0xFFFF.")
 
-        super().__init__(ApiFrameType.EXPLICIT_RX_INDICATOR)
+        super(ExplicitRXIndicatorPacket,self).__init__(ApiFrameType.EXPLICIT_RX_INDICATOR)
         self.__x64bit_addr = x64bit_addr
         self.__x16bit_addr = x16bit_addr
         self.__source_endpoint = source_endpoint

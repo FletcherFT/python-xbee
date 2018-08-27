@@ -12,7 +12,6 @@
 # ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 # OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
-from concurrent.futures import ThreadPoolExecutor
 from queue import Queue, Empty
 import logging
 import threading
@@ -32,14 +31,8 @@ from digi.xbee.packets.base import XBeePacket, XBeeAPIPacket
 from digi.xbee.packets.common import ReceivePacket
 from digi.xbee.packets.raw import RX64Packet, RX16Packet
 from digi.xbee.util import utils
-from digi.xbee.exception import TimeoutException, InvalidPacketException
+from digi.xbee.exception import TimeoutException
 from digi.xbee.io import IOSample
-
-
-# Maximum number of parallel callbacks.
-MAX_PARALLEL_CALLBACKS = 50
-
-executor = ThreadPoolExecutor(max_workers=MAX_PARALLEL_CALLBACKS)
 
 
 class XBeeEvent(list):
@@ -60,8 +53,7 @@ class XBeeEvent(list):
     """
     def __call__(self, *args, **kwargs):
         for f in self:
-            future = executor.submit(f, *args, **kwargs)
-            future.add_done_callback(self.__execution_finished)
+            f(*args, **kwargs)
 
     def __repr__(self):
         return "Event(%s)" % list.__repr__(self)
@@ -73,19 +65,6 @@ class XBeeEvent(list):
     def __isub__(self, other):
         self.remove(other)
         return self
-
-    def __execution_finished(self, future):
-        """
-        Called when the execution of the callable has finished.
-
-        Args:
-            future (:class:`.Future`): Future associated to the execution of the callable.
-
-        Raises:
-            Exception: if the execution of the callable raised any exception.
-        """
-        if future.exception():
-            raise future.exception()
 
 
 class PacketReceived(XBeeEvent):
@@ -305,11 +284,7 @@ class PacketListener(threading.Thread):
         self.__explicit_xbee_queue = XBeeQueue(self.__queue_max_size)
         self.__ip_xbee_queue = XBeeQueue(self.__queue_max_size)
 
-        self._log_handler = logging.StreamHandler()
-        self._log.addHandler(self._log_handler)
-
-    def __del__(self):
-        self._log.removeHandler(self._log_handler)
+        self._log.addHandler(logging.StreamHandler())
 
     def run(self):
         """
@@ -330,12 +305,7 @@ class PacketListener(threading.Thread):
                         continue
 
                     # Build the packet.
-                    try:
-                        read_packet = factory.build_frame(raw_packet, self.__xbee_device.operating_mode)
-                    except InvalidPacketException as e:
-                        self._log.error("Error processing packet '%s': %s" % (utils.hex_to_string(raw_packet), str(e)))
-                        continue
-
+                    read_packet = factory.build_frame(raw_packet, self.__xbee_device.operating_mode)
                     self._log.debug(self.__xbee_device.LOG_PATTERN.format(port=self.__xbee_device.serial_port.port,
                                                                           event="RECEIVED",
                                                                           opmode=self.__xbee_device.operating_mode,

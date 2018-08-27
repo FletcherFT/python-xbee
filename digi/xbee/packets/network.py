@@ -55,7 +55,7 @@ class RXIPv4Packet(XBeeAPIPacket):
         if source_port < 0 or source_port > 65535:
             raise ValueError("Source port must be between 0 and 65535")
 
-        super().__init__(ApiFrameType.RX_IPV4)
+        super(RXIPv4Packet,self).__init__(ApiFrameType.RX_IPV4)
         self.__source_address = source_address
         self.__dest_port = dest_port
         self.__source_port = source_port
@@ -305,7 +305,7 @@ class TXIPv4Packet(XBeeAPIPacket):
         if source_port < 0 or source_port > 65535:
             raise ValueError("Source port must be between 0 and 65535")
 
-        super().__init__(ApiFrameType.TX_IPV4)
+        super(TXIPv4Packet,self).__init__(ApiFrameType.TX_IPV4)
         self._frame_id = frame_id
         self.__dest_address = dest_address
         self.__dest_port = dest_port
