@@ -2698,7 +2698,9 @@ class ExplicitRXIndicatorPacket(XBeeAPIPacket):
         """
         if self.__rf_data is None:
             return None
-        return self.__rf_data.copy()
+        tmp = self.__rf_data
+        return tmp
+        #return self.__rf_data.copy()
 
     def __set_rf_data(self, rf_data):
         """
@@ -2710,8 +2712,10 @@ class ExplicitRXIndicatorPacket(XBeeAPIPacket):
         if rf_data is None:
             self.__rf_data = None
         else:
-            self.__rf_data = rf_data.copy()
-
+            #self.__rf_data = rf_data.copy()
+            rf_data
+            self.__rf_data = tmp
+            
     x64bit_source_addr = property(__get_64bit_addr, __set_64bit_addr)
     """:class:`.XBee64BitAddress`. 64-bit source address."""
 

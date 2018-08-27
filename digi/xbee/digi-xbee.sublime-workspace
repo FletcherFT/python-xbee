@@ -1,0 +1,748 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"yaw",
+				"yaw_error_measured"
+			],
+			[
+				"distance",
+				"distance_error_measured"
+			],
+			[
+				"g",
+				"get_name"
+			],
+			[
+				"dis",
+				"distance_error_acceptance"
+			],
+			[
+				"yaw_e",
+				"yaw_error_acceptance"
+			],
+			[
+				"yaw_error",
+				"yaw_error_acceptance"
+			],
+			[
+				"or",
+				"orientation"
+			],
+			[
+				"uf",
+				"unfiltered_odom"
+			],
+			[
+				"unfiltered",
+				"unfiltered_msg"
+			],
+			[
+				"un",
+				"unfiltered_msg"
+			],
+			[
+				"do_",
+				"do_transform_pose"
+			],
+			[
+				"tf2_",
+				"tf2_geometry_msgs"
+			],
+			[
+				"tfBu",
+				"tfBufferInterface"
+			],
+			[
+				"frame",
+				"frame_id"
+			],
+			[
+				"tfB",
+				"tfBufferInterface"
+			],
+			[
+				"marker",
+				"marker_pub"
+			],
+			[
+				"x",
+				"x"
+			],
+			[
+				"y",
+				"y"
+			],
+			[
+				"im",
+				"imu_offset"
+			],
+			[
+				"Tra",
+				"TransformStamped"
+			],
+			[
+				"od",
+				"odom_msg"
+			],
+			[
+				"T",
+				"TwistWithCovarianceStamped"
+			],
+			[
+				"ang",
+				"ang_vel_cov"
+			],
+			[
+				"lin",
+				"lin_acc_cov"
+			],
+			[
+				"angul",
+				"angular_velocity_covariance"
+			],
+			[
+				"an",
+				"angular_velocity_covariance"
+			],
+			[
+				"linear_acceleration_c",
+				"linear_acceleration_covariance"
+			],
+			[
+				"orien",
+				"orientation_covariance"
+			],
+			[
+				"1e",
+				"1e-1"
+			],
+			[
+				"true",
+				"true"
+			],
+			[
+				"if",
+				"isf310"
+			],
+			[
+				"Ti",
+				"TimeSynchronizer"
+			],
+			[
+				"compress",
+				"compression_quality"
+			],
+			[
+				"compre",
+				"compression_quality"
+			],
+			[
+				"joy",
+				"joy_port"
+			],
+			[
+				"se",
+				"set_weight"
+			],
+			[
+				"acti",
+				"action_library"
+			],
+			[
+				"b",
+				"bluerov_ffg"
+			],
+			[
+				"Emp",
+				"EmptyRequest"
+			],
+			[
+				"Wo",
+				"WorldStepGazeboPlugin"
+			],
+			[
+				"p",
+				"pose"
+			],
+			[
+				"n",
+				"newState"
+			],
+			[
+				"t",
+				"true"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "devices.py",
+			"settings":
+			{
+				"buffer_size": 230248,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "packets/common.py",
+			"settings":
+			{
+				"buffer_size": 96019,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "packets/devicecloud.py",
+			"settings":
+			{
+				"buffer_size": 35018,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "packets/network.py",
+			"settings":
+			{
+				"buffer_size": 18890,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "packets/raw.py",
+			"settings":
+			{
+				"buffer_size": 48117,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "packets/wifi.py",
+			"settings":
+			{
+				"buffer_size": 26600,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "packets/base.py",
+			"settings":
+			{
+				"buffer_size": 20684,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 413.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/fft/.local/lib/python2.7/site-packages/digi/xbee",
+		"/home/fft/.local/lib/python2.7/site-packages/digi/xbee/util"
+	],
+	"file_history":
+	[
+		"/home/fft/.local/lib/python2.7/site-packages/digi/xbee/packets/cellular.py",
+		"/home/fft/ROS_ws/src/asv_framework/asv_failsafe/tests/localfailtest.launch",
+		"/home/fft/ROS_ws/src/data_analysis_pkg/scripts/gps_data.py",
+		"/home/fft/ROS_ws/src/asv_framework/asv_energy/scripts/power_module.py",
+		"/home/fft/Arduino/libraries/DualVNH5019MotorShield/DualVNH5019MotorShield.cpp",
+		"/home/fft/Arduino/libraries/DualVNH5019MotorShield/DualVNH5019MotorShield.h",
+		"/home/fft/ROS_ws/src/asv_framework/asv_launch/launch/bringup_hmi.launch",
+		"/home/fft/ROS_ws/src/asv_framework/asv_guidance/scripts/guidance.py",
+		"/home/fft/ROS_ws/src/data_analysis_pkg/launch/navigation_review.launch",
+		"/home/fft/ROS_ws/src/data_analysis_pkg/scripts/path_visualisation.py",
+		"/home/fft/ROS_ws/src/asv_framework/asv_navigation/tests/imu_variance_test.launch",
+		"/home/fft/ROS_ws/src/asv_framework/asv_navigation/scripts/unfiltered_odom.py",
+		"/home/fft/ROS_ws/src/asv_framework/asv_navigation/params/navsat_tf.yaml",
+		"/home/fft/ROS_ws/src/asv_framework/asv_navigation/params/ekf.yaml",
+		"/home/fft/ROS_ws/src/asv_framework/asv_navigation/tests/ekf_field_test.launch",
+		"/home/fft/ROS_ws/src/asv_framework/asv_launch/launch/bringup_navigation.launch",
+		"/home/fft/ROS_ws/src/asv_framework/asv_launch/launch/bringup_guidance.launch",
+		"/home/fft/ROS_ws/src/asv_framework/asv_guidance/scripts/guidance_node.py",
+		"/home/fft/ROS_ws/src/asv_framework/asv_navigation/launch/ekf.launch",
+		"/home/fft/ROS_ws/src/asv_framework/asv_guidance/package.xml",
+		"/home/fft/ROS_ws/src/gps_rviz_plugin/config/google_static_map_api_key_sample.yaml",
+		"/home/fft/Downloads/waypoints.gpx",
+		"/home/fft/ROS_ws/src/asv_framework/asv_framework/package.xml",
+		"/home/fft/ROS_ws/src/asv_framework/asv_navigation/launch/ukf.launch",
+		"/home/fft/ROS_ws/src/asv_framework/asv_navigation/params/ukf.yaml",
+		"/home/fft/ROS_ws/src/asv_framework/asv_navigation/tests/unit_test_navsat_ekf.launch",
+		"/home/fft/ROS_ws/src/asv_framework/asv_navigation/scripts/utm_odom.py",
+		"/home/fft/ROS_ws/src/asv_framework/asv_navigation/params/utm_pose.yaml",
+		"/home/fft/ROS_ws/src/asv_framework/asv_navigation/scripts/odom_3D.py",
+		"/home/fft/ROS_ws/src/asv_framework/asv_navigation/scripts/fake_gps.py",
+		"/home/fft/ROS_ws/src/asv_framework/asv_navigation/launch/ekf_utm.launch",
+		"/opt/ros/kinetic/share/robot_localization/params/ekf_template.yaml",
+		"/home/fft/ROS_ws/src/asv_framework/asv_navigation/tests/ukf_field_test.launch",
+		"/home/fft/ROS_ws/src/asv_framework/asv_navigation/launch/tfs.launch",
+		"/home/fft/ROS_ws/src/asv_framework/asv_navigation/tests/integration_test_ekf_2.launch",
+		"/home/fft/ROS_ws/src/asv_framework/asv_navigation/params/um7.yaml",
+		"/home/fft/ROS_ws/src/asv_framework/asv_navigation/params/ekf_odom.yaml",
+		"/home/fft/ROS_ws/src/asv_framework/asv_launch/envs/shoreside-env.sh",
+		"/home/fft/ROS_ws/src/asv_framework/asv_navigation/tests/integration_test_ukf.launch",
+		"/home/fft/ROS_ws/src/asv_framework/asv_navigation/scripts/imu_transform_broadcaster.py",
+		"/home/fft/ROS_ws/src/asv_framework/asv_navigation/scripts/utm_pose.py",
+		"/home/fft/ROS_ws/src/asv_framework/asv_navigation/launch/sensors.launch",
+		"/home/fft/ROS_ws/src/asv_framework/asv_navigation/tests/unit_test_2.launch",
+		"/home/fft/ROS_ws/src/asv_framework/asv_navigation/CMakeLists.txt",
+		"/home/fft/ROS_ws/src/asv_framework/asv_navigation/package.xml",
+		"/home/fft/ROS_ws/src/geonav_transform/src/geonav_transform.cpp",
+		"/home/fft/ROS_ws/src/asv_framework/asv_navigation/tests/integration_test_1.launch",
+		"/home/fft/ROS_ws/src/asv_framework/asv_navigation/tests/integration_test_3_ukf.launch",
+		"/home/fft/ROS_ws/src/asv_framework/asv_navigation/tests/unit_test_1.launch",
+		"/home/fft/ROS_ws/src/asv_framework/asv_navigation/launch/um7.launch",
+		"/home/fft/ROS_ws/src/asv_framework/asv_navigation/launch/gps3dr.launch",
+		"/home/fft/ROS_ws/src/asv_framework/asv_control/CMakeLists.txt",
+		"/home/fft/ROS_ws/src/asv_framework/asv_control/package.xml",
+		"/home/fft/ROS_ws/src/data_analysis_pkg/scripts/imu_variance.py",
+		"/home/fft/ROS_ws/src/data_analysis_pkg/CMakeLists.txt",
+		"/home/fft/ROS_ws/src/data_analysis_pkg/package.xml",
+		"/home/fft/ROS_ws/src/um7/src/main.cpp",
+		"/home/fft/ROS_ws/src/um7/README.md",
+		"/home/fft/sentinel_ws/src/data_prep_pkg/scripts/flightdata2csv.py",
+		"/home/fft/sentinel_ws/src/data_prep_pkg/scripts/includestateestimation.py",
+		"/home/fft/sentinel_ws/src/data_prep_pkg/package.xml",
+		"/home/fft/sentinel_ws/src/data_prep_pkg/CMakeLists.txt",
+		"/opt/ros/kinetic/share/robot_localization/params/ukf_template.yaml",
+		"/opt/ros/kinetic/share/robot_localization/launch/ukf_template.launch",
+		"/home/fft/ROS_ws/src/asv_framework/asv_navigation/launch/unit_test_1.launch",
+		"/home/fft/ROS_ws/src/asv_framework/asv_navigation/launch/integration_test_2.launch",
+		"/home/fft/ROS_ws/src/asv_framework/asv_launch/launch/base.launch",
+		"/home/fft/um7_backup/src/main.cpp",
+		"/home/fft/ROS_ws/src/asv_framework/pc2bbbsync.sh",
+		"/home/fft/ROS_ws/src/asv_framework/asv_navigation/params/3dr_gps_lea6h.yaml",
+		"/home/fft/ROS_ws/src/asv_framework/asv_navigation/launch/test_rotation_tf.launch",
+		"/home/fft/ROS_ws/src/asv_framework/asv_launch/launch/missionplanner.launch",
+		"/home/fft/sentinel_ws/src/data_prep_pkg/scripts/imu_viz.py",
+		"/home/fft/ROS_ws/src/asv_framework/asv_navigation/launch/test_rotationo_tf.launch",
+		"/home/fft/sentinel_ws/src/data_prep_pkg/params/ekf.yaml",
+		"/home/fft/sentinel_ws/src/data_prep_pkg/launch/ekf_template.launch",
+		"/home/fft/ROS_ws/src/rviz_satellite/launch/demo.launch",
+		"/home/fft/ROS_ws/src/rviz_satellite/launch/demo.gps",
+		"/home/fft/ekf_template.launch",
+		"/home/fft/dual_ekf_navsat_example.launch",
+		"/home/fft/dual_ekf_navsat_example.yaml",
+		"/home/fft/navsat_transform_template.launch",
+		"/home/fft/navsat_transform_template.yaml",
+		"/home/fft/sentinel_ws/src/sentinel_bringup/launch/test-gps.launch",
+		"/home/fft/sentinel_ws/src/sentinel_bringup/launch/sentinel.launch",
+		"/home/fft/sentinel_ws/src/waterlinked_gps/scripts/wl_gps_driver.py",
+		"/home/fft/sentinel_ws/src/sentinel_bringup/scripts/test-sentinel.sh",
+		"/home/fft/sentinel_ws/src/waterlinked_gps/scripts/waterlinked_gps_node.py",
+		"/home/fft/sentinel_ws/src/sentinel_bringup/launch/mavros-test.launch",
+		"/home/fft/sentinel_ws/src/sentinel_state_estimation/scripts/imu_correction.py",
+		"/home/fft/sentinel_ws/src/data_prep_pkg/launch/trajviz.launch",
+		"/home/fft/sentinel_ws/src/data_prep_pkg/launch/sentinel_visual.launch",
+		"/home/fft/sentinel_ws/src/sentinel_bringup/urdf/bluerov2.urdf",
+		"/home/fft/sentinel_ws/src/sentinel_bringup/params/ekf_localization.yaml",
+		"/home/fft/sentinel_ws/src/sentinel_bringup/params/sentinel/apm_config.yaml",
+		"/home/fft/sentinel_ws/src/data_prep_pkg/scripts/sentinelbagconversion.py",
+		"/home/fft/sentinel_ws/src/data_prep_pkg/scripts/fixbags.sh",
+		"/home/fft/sentinel_ws/src/sentinel_bringup/launch/sentinel-test.launch",
+		"/home/fft/sentinel_ws/src/data_prep_pkg/scripts/fixtfs.py",
+		"/home/fft/sentinel_ws/src/data_prep_pkg/scripts/fixbagtfs.sh",
+		"/home/fft/sentinel_ws/src/data_prep_pkg/scripts/gps_acoustic_markers.py",
+		"/home/fft/sentinel_ws/src/sentinel_bringup/launch/scylla-screen-test.launch",
+		"/home/fft/sentinel_ws/src/sentinel_bringup/scripts/test-scylla.sh",
+		"/home/fft/sentinel_ws/src/sentinel_bringup/scripts/startup-roscore.sh",
+		"/home/fft/sentinel_ws/src/sentinel_bringup/launch/test.launch",
+		"/home/fft/sentinel_ws/src/sentinel_bringup/envs/fft-laptop-remote.sh",
+		"/home/fft/sentinel_ws/src/sentinel_bringup/envs/sentinel-local.sh",
+		"/home/fft/sentinel_ws/src/sentinel_bringup/envs/sentinel-remote.sh",
+		"/home/fft/sentinel_ws/src/sentinel_bringup/envs/remora-scylla-local.sh",
+		"/home/fft/sentinel_ws/src/sentinel_control/CMakeLists.txt",
+		"/home/fft/sentinel_ws/src/sentinel_control/package.xml",
+		"/home/fft/remora_ws/src/teleop/launch/teleop_xbox.launch",
+		"/home/fft/remora_ws/src/teleop/launch/teleop.launch",
+		"/home/fft/remora_ws/src/sentinel_bringup/launch/mavros-test.launch",
+		"/home/fft/remora_ws/src/teleop/src/teleop_joy_new.cpp",
+		"/home/fft/remora_ws/src/sentinel_control/scripts/sentinel_control.py",
+		"/home/fft/remora_ws/src/sentinel_bringup/params/sentinel/apm_pluginlists.yaml",
+		"/home/fft/remora_ws/src/teleop/CMakeLists.txt",
+		"/home/fft/remora_ws/src/teleop/cfg/teleop_joy.cfg",
+		"/home/fft/remora_ws/src/sentinel_control/src/sentinel_control.cpp",
+		"/home/fft/remora_ws/src/sentinel_control/launch/sentinel-pids.launch",
+		"/home/fft/remora_ws/src/sentinel_bringup/launch/sentinel-test.launch",
+		"/home/fft/remora_ws/src/data_prep_pkg/launch/trajviz.launch",
+		"/home/fft/remora_ws/src/waterlinked_gps/scripts/wl_gps_driver.py",
+		"/home/fft/remora_ws/src/sentinel_sensor_msgs/msg/Bar30.msg",
+		"/home/fft/remora_ws/src/sentinel_sensor_msgs/CMakeLists.txt",
+		"/home/fft/remora_ws/src/sentinel_sensor_msgs/msg/DepthSensor.msg",
+		"/home/fft/remora_ws/src/waterlinked_gps/scripts/waterlinked_gps_node.py"
+	],
+	"find":
+	{
+		"height": 42.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"super"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "devices.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 230248,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								111370,
+								111370
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 52318.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "packets/common.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 96019,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								95060,
+								95060
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 53461.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "packets/devicecloud.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 35018,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								10237,
+								10237
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 5191.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "packets/network.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 18890,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2538,
+								2538
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 671.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "packets/raw.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 48117,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2477,
+								2477
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 711.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "packets/wifi.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 26600,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								19924,
+								19924
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 10991.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "packets/base.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 20684,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								9074,
+								9074
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 151.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 29.0
+	},
+	"input":
+	{
+		"height": 42.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "digi-xbee.sublime-project",
+	"replace":
+	{
+		"height": 54.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/RL_workspace/rltesting.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 363.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

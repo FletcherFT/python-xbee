@@ -15,9 +15,9 @@
 from digi.xbee.devices import ZigBeeDevice
 
 # TODO: Replace with the serial port where your local module is connected to. 
-PORT = "COM1"
+PORT = "/dev/ttyUSB1"
 # TODO: Replace with the baud rate of your local module.
-BAUD_RATE = 9600
+BAUD_RATE = 115200
 
 REMOTE_NODE_ID = "REMOTE"
 DATA_TO_SEND = "Hello XBee!"
