@@ -35,6 +35,7 @@ def main():
         device.set_api_output_mode(APIOutputMode.EXPLICIT)
 
         def explicit_data_callback(explicit_xbee_message):
+            print("Received!")
             print("From %s >> %s"
                   % (explicit_xbee_message.remote_device.get_64bit_addr(),
                      explicit_xbee_message.data.decode()))
